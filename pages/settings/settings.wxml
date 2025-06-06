@@ -1,0 +1,31 @@
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="form-item">
+      <text class="label">资源标题</text>
+      <input name="title" placeholder="请输入资源标题" value="{{form.title}}" data-field="title"
+        bindinput="handleInputChange" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">资源描述</text>
+      <textarea name="content" placeholder="请描述资源内容" value="{{form.content}}" data-field="content"
+        bindinput="handleInputChange"></textarea>
+    </view>
+
+    <view class="form-item">
+      <text class="label">资源链接</text>
+      <input name="link" placeholder="请输入资源链接" value="{{form.link}}" data-field="link" bindinput="handleInputChange" />
+    </view>
+
+    <view class="form-item">
+      <text class="label">资源类型</text>
+      <picker name="linkText" range="{{resourceTypes}}" bindchange="handlePickerChange">
+        <view class="picker">{{form.linkText || '请选择资源类型'}}</view>
+      </picker>
+    </view>
+
+    <button form-type="submit" class="submit-btn" disabled="{{isSubmitting}}">
+      {{isSubmitting ? '发布中...' : '发布'}}
+    </button>
+  </form>
+</view>

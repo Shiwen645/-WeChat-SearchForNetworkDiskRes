@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/searchResult/searchResult",
+    "pages/detail/detail",
+    "pages/userCenter/userCenter",
+    "pages/settings/settings",
+    "pages/Center/Center"
+  ],
+  "window": {
+    "navigationBarTitleText": "网盘资源搜索",
+    "navigationBarBackgroundColor": "#2196F3",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f5f5",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#2196F3",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabs/home.png",
+        "selectedIconPath": "assets/tabs/home.png"
+      },
+      {
+        "pagePath": "pages/searchResult/searchResult",
+        "text": "搜索",
+        "iconPath": "assets/tabs/search.png",
+        "selectedIconPath": "assets/tabs/search.png"
+      },
+      {
+        "pagePath": "pages/detail/detail",
+        "text": "社区",
+        "iconPath": "assets/tabs/community.png",
+        "selectedIconPath": "assets/tabs/community.png"
+      },
+      {
+        "pagePath": "pages/userCenter/userCenter",
+        "text": "我的",
+        "iconPath": "assets/tabs/user.png",
+        "selectedIconPath": "assets/tabs/user.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

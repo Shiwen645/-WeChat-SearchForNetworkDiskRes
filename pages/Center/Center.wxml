@@ -1,0 +1,85 @@
+<!--pages/Center/Center.wxml-->
+<view class="container" wx:if="{{article}}">
+  <view class="header">
+    <image class="avatar" src="{{article.avatar || '/assets/icons/user.jpg'}}"></image>
+    <view class="user-info">
+      <text class="username">{{article.author || '匿名用户'}}</text>
+      <text class="time">{{displayTime || article.time || '未知时间'}}</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮区 -->
+  <view class="action-bar">
+    <button class="action-btn favorite-btn {{isFavorited ? 'active' : ''}}" bindtap="toggleFavorite">
+      <image src="/assets/icons/favor.svg"></image>
+      <text>{{favoriteCount}}</text>
+    </button>
+    <button class="action-btn comment-btn" bindtap="toggleCommentInput">
+      <image src="/assets/icons/feedback.svg"></image>
+      <text>评论</text>
+    </button>
+  </view>
+
+  <view class="divider"></view>
+
+  <!-- 内容区 -->
+  <view class="content">
+    <text class="title">{{article.title || '无标题'}}</text>
+    <text class="body">{{article.content}}</text>
+
+    <view class="resource-link" wx:if="{{article.link}}">
+      <text>{{article.linkText || '资源链接：'}}</text>
+      <text class="link" bindtap="copyLink" data-link="{{article.link}}">{{article.link}}</text>
+    </view>
+  </view>
+
+  <view class="divider"></view>
+
+  <!-- 评论区 -->
+  <view class="comment-section">
+    <view class="comment-header">
+      <text>评论</text>
+      <button bindtap="toggleCommentInput">写评论</button>
+    </view>
+
+    <!-- 评论输入框 -->
+    <view class="comment-input" wx:if="{{showCommentInput}}">
+      <input placeholder="{{replyTo ? '回复 @' + replyTo.username : '写下你的评论...'}}" bindinput="onCommentInput"
+        value="{{newComment}}" />
+      <button bindtap="submitComment">发送</button>
+    </view>
+
+    <!-- 评论列表 -->
+    <view class="comment-list">
+      <block wx:for="{{comments}}" wx:key="_id">
+        <view class="comment-item">
+          <image class="avatar" src="{{item.user.avatar || '/assets/icons/user.jpg'}}"></image>
+          <view class="comment-content">
+            <view class="comment-header">
+              <text class="username">{{item.user.nickName}}</text>
+              <text class="time">{{item.displayTime}}</text>
+            </view>
+            <text class="comment-text">{{item.content}}</text>
+            <view class="comment-actions">
+              <text bindtap="showReplyInput" data-comment="{{item}}">回复</text>
+            </view>
+
+            <!-- 回复列表 -->
+            <view class="reply-list" wx:if="{{item.replies && item.replies.length}}">
+              <block wx:for="{{item.replies}}" wx:key="_id">
+                <view class="reply-item">
+                  <image class="avatar" src="{{item.user.avatar || '/assets/icons/user.jpg'}}"></image>
+                  <view class="reply-content">
+                    <text class="username">{{item.user.nickName}}</text>
+                    <text class="reply-text">{{item.content}}</text>
+                    <text class="time">{{item.displayTime}}</text>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

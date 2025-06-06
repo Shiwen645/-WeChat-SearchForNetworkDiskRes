@@ -1,0 +1,35 @@
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card" wx:if="{{isLoggedIn}}">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+    <view class="info">
+      <view class="nickname">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class="user-card" wx:else>
+    <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserProfile">微信授权登录</button>
+  </view>
+
+  <!-- 数据统计 -->
+  <view class="stats-container">
+    <block wx:for="{{stats}}" wx:key="label">
+      <view class="stat-item">
+        <text class="stat-value">{{item.value}}</text>
+        <text class="stat-label">{{item.label}}</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="feature-grid">
+    <block wx:for="{{features}}" wx:key="name">
+      <view class="feature-item" bindtap="navigateTo" data-url="{{item.url}}">
+        <image src="/assets/icons/{{item.icon}}.svg"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 退出按钮 -->
+  <button class="logout-btn" wx:if="{{isLoggedIn}}" bindtap="logout">退出登录</button>
+</view>

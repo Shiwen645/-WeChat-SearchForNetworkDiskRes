@@ -1,0 +1,83 @@
+<!-- 主要内容区 -->
+<scroll-view class="container" scroll-y>
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <view class="search-input">
+      <icon type="search" size="16" color="#999"></icon>
+      <input type="text" placeholder="输入资源名称、作者或关键词" placeholder-class="placeholder" bindinput="handleInput"
+        bindconfirm="handleSearch" value="{{inputValue}}" focus="{{autoFocus}}" />
+      <icon type="clear" size="16" color="#ccc" wx:if="{{inputValue}}" bindtap="handleClear"></icon>
+    </view>
+    <button class="search-btn" bindtap="handleSearch" style="width: 80px;">搜索</button>
+  </view>
+
+  <!-- 热门搜索 -->
+  <view class="section" wx:if="{{hotKeywords.length}}">
+    <view class="section-title">
+      <text>热门搜索</text>
+    </view>
+    <view class="tags">
+      <block wx:for="{{hotKeywords}}" wx:key="index">
+        <view class="tag" bindtap="handleHotKeywordTap" data-keyword="{{item}}">{{item}}</view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 搜索历史 -->
+  <view class="section" wx:if="{{history.length}}">
+    <view class="section-title">
+      <text>搜索历史</text>
+      <text class="clear-btn" bindtap="handleClearHistory">清除</text>
+    </view>
+    <view class="history-list">
+      <block wx:for="{{history}}" wx:key="index">
+        <view class="history-item" bindtap="handleHistoryItemTap" data-keyword="{{item}}">
+          <icon type="search" size="14" color="#999"></icon>
+          <text>{{item}}</text>
+          <icon type="close" size="14" color="#999" catchtap="handleDeleteHistory" data-index="{{index}}"></icon>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 分类快捷入口 -->
+  <view class="section">
+    <view class="section-title">
+      <text>资源分类</text>
+    </view>
+    <view class="category-grid">
+      <block wx:for="{{categories}}" wx:key="id">
+        <view class="category-item" bindtap="handleCategoryTap" data-name="{{item.name}}">
+          <image src="{{item.icon}}" mode="aspectFill"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+
+    <!-- 分类搜索结果 -->
+    <view class="category-results" wx:if="{{categoryResults.length}}">
+      <view class="result-title">"{{currentCategory}}"相关资源</view>
+      <block wx:for="{{categoryResults}}" wx:key="id">
+        <view class="result-card">
+          <view class="card-header">
+            <text class="title">{{item.displayText}}</text>
+            <text class="source">{{item.source || '未知来源'}}</text>
+          </view>
+          <view class="card-meta">
+            <image class="file-icon" src="{{item._iconPath || '../../assets/icons/doc.svg'}}"></image>
+            <text class="size">{{item.size || '未知大小'}}</text>
+            <text class="time">{{item.createtime}}</text>
+          </view>
+          <view class="card-actions">
+            <button class="action-btn" bindtap="copyLink" data-link="{{item.url}}" style="width: 35%;">
+              <icon type="link" size="12"></icon>复制链接
+            </button>
+            <button class="action-btn" bindtap="previewResource" data-url="{{item.url}}" style="width: 35%;">
+              <icon type="search" size="11"></icon>查看资源
+            </button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</scroll-view>

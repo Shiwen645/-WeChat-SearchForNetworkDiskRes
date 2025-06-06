@@ -1,0 +1,82 @@
+<!-- 顶部搜索栏 -->
+<view class="search-header">
+  <view class="search-bar">
+    <icon type="search" size="16" color="#999"></icon>
+    <input placeholder="搜电影/剧集/资料..." placeholder-class="placeholder" bindinput="onInput" confirm-type="search"
+      bindconfirm="doSearch" value="{{keyword}}" />
+    <icon wx:if="{{keyword}}" type="clear" size="16" color="#ccc" bindtap="clearInput"></icon>
+  </view>
+  <button class="search-btn" bindtap="doSearch" style="width: 80px;">搜索</button>
+</view>
+
+<!-- 结果列表 -->
+<scroll-view class="result-container" scroll-y enable-back-to-top bindscrolltolower="loadMore">
+  <!-- 默认数据展示 -->
+  <block wx:if="{{showDefault}}">
+    <view class="default-tip">
+      <text>未找到匹配结果，为您推荐以下资源：</text>
+    </view>
+    <block wx:for="{{defaultResults}}" wx:key="id">
+      <view class="result-card">
+        <view class="card-header">
+          <text class="title">{{item.title}}</text>
+          <text class="source">{{item.author}}</text>
+        </view>
+
+        <view class="card-content">
+          <text>{{item.content}}</text>
+        </view>
+
+        <view class="card-meta">
+          <text class="time">{{item.time}}</text>
+          <text class="type">{{item.linkText}}</text>
+        </view>
+
+        <view class="card-actions">
+          <button class="action-btn" bindtap="copyLink" data-link="{{item.url || item.link}}">
+            <icon type="link" size="14"></icon> 复制链接
+          </button>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <!-- 正常搜索结果 -->
+  <block wx:if="{{!showDefault}}" wx:for="{{results}}" wx:key="id">
+    <view class="result-card">
+      <view class="card-header">
+        <text class="title" decode>{{item.searchtext || item.title}}</text>
+        <text class="source">{{item.course}}</text>
+      </view>
+
+      <view class="card-meta">
+        <text class="tag">{{item.filetype}}</text>
+        <text class="time">{{formatTime(item.updatetime)}}</text>
+        <text class="size">{{item.size || '未知大小'}}</text>
+      </view>
+
+      <view class="card-actions">
+        <button class="action-btn" bindtap="copyLink" data-link="{{item.url || item.link}}" style="width: 35%;">
+          <icon type="link" size="14"></icon> 复制链接
+        </button>
+        <button class="action-btn" bindtap="previewResource" data-url="{{item.url}}" style="width: 35%;">
+          <icon type="eye" size="14"></icon> 查看资源
+        </button>
+      </view>
+    </view>
+  </block>
+
+  <!-- 加载状态 -->
+  <view class="loading-status">
+    <block wx:if="{{loading}}">
+      <image src="/assets/loading.gif" class="loading-icon"></image>
+      <text>努力加载中...</text>
+    </block>
+    <block wx:if="{{!hasMore && (results.length > 0 || showDefault)}}">
+      <text>~ 已经到底啦 ~</text>
+    </block>
+    <block wx:if="{{!loading && results.length === 0 && !showDefault}}">
+      <text class="noSearch">暂无搜索结果，换个关键词试试</text>
+    </block>
+  </view>
+</scroll-view>

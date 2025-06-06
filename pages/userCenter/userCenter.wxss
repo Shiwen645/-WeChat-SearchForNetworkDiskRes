@@ -1,0 +1,114 @@
+.container {
+  padding: 30rpx;
+  background: linear-gradient(to bottom, #f5f7fa, #e4e8ed);
+  min-height: 100vh;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  min-height: 180rpx;
+}
+
+.login-btn {
+  background: #07C160;
+  color: white;
+  border: none;
+  border-radius: 10rpx;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.info {
+  height: 50px;
+  flex: 1;
+}
+
+.nickname {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.bio {
+  font-size: 23rpx;
+  color: #666;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-evenly;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #2196F3;
+  display: block;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+  margin-top: 10rpx;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.feature-item image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.feature-item text {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.logout-btn {
+  margin-top: 40rpx;
+  background: #fff;
+  color: #f56c6c;
+  border: 1rpx solid #f56c6c;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
