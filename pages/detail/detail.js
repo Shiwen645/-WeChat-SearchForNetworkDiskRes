@@ -2,9 +2,9 @@ Page({
   data: {
     articles: [], //需要渲染的数据
     swiperImages: [
-      'http://156.233.233.164:8090/upload/4a4f3471882f11ebb6edd017c2d2eca2.png',
-      'http://156.233.233.164:8090/upload/75f623625ac54b1c8278ce060d07b546.jpg',
-      'http://156.233.233.164:8090/upload/1166283-zAcQ.jpg'
+      'https://blogs.shiwen645.icu/upload/4a4f3471882f11ebb6edd017c2d2eca2.png',
+      'https://blogs.shiwen645.icu/upload/75f623625ac54b1c8278ce060d07b546.jpg',
+      'https://blogs.shiwen645.icu/upload/1166283-zAcQ.jpg'
     ] //每个轮播图的链接
   },
 

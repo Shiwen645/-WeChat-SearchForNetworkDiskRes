@@ -54,7 +54,8 @@ Page({
   // APi响应内容函数（微信开发小程序内置API：request）
   loadData() {
     wx.request({
-      url: 'http://156.233.233.164:5555/search',
+      // https://api.shiwen645.icu/search
+      url: 'https://shiwen645.icu/search',
       data: {
         kw: this.data.keyword, //搜索关键词
         page: this.data.page, // 搜索页数

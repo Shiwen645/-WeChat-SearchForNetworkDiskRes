@@ -11,7 +11,7 @@
   </view>
 
   <!-- 数据统计 -->
-  <view class="stats-container">
+  <view class="stats-container" wx:if="{{isLoggedIn}}">
     <block wx:for="{{stats}}" wx:key="label">
       <view class="stat-item">
         <text class="stat-value">{{item.value}}</text>
@@ -21,7 +21,7 @@
   </view>
 
   <!-- 功能入口 -->
-  <view class="feature-grid">
+  <view class="feature-grid" wx:if="{{isLoggedIn}}"> 
     <block wx:for="{{features}}" wx:key="name">
       <view class="feature-item" bindtap="navigateTo" data-url="{{item.url}}">
         <image src="/assets/icons/{{item.icon}}.svg"></image>

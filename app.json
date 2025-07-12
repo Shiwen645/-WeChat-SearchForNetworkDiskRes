@@ -5,7 +5,9 @@
     "pages/detail/detail",
     "pages/userCenter/userCenter",
     "pages/settings/settings",
-    "pages/Center/Center"
+    "pages/Center/Center",
+    "pages/collection/collection",
+    "pages/Setup/Setup"
   ],
   "window": {
     "navigationBarTitleText": "网盘资源搜索",
@@ -23,26 +25,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "assets/tabs/home.png",
-        "selectedIconPath": "assets/tabs/home.png"
+        "iconPath": "assets/tabs/网盘.png",
+        "selectedIconPath": "assets/tabs/网盘 (1).png"
       },
       {
         "pagePath": "pages/searchResult/searchResult",
         "text": "搜索",
-        "iconPath": "assets/tabs/search.png",
-        "selectedIconPath": "assets/tabs/search.png"
+        "iconPath": "assets/tabs/发现.png",
+        "selectedIconPath": "assets/tabs/发现 (1).png"
       },
       {
         "pagePath": "pages/detail/detail",
         "text": "社区",
-        "iconPath": "assets/tabs/community.png",
-        "selectedIconPath": "assets/tabs/community.png"
+        "iconPath": "assets/tabs/社区.png",
+        "selectedIconPath": "assets/tabs/社区 (1).png"
       },
       {
         "pagePath": "pages/userCenter/userCenter",
         "text": "我的",
-        "iconPath": "assets/tabs/user.png",
-        "selectedIconPath": "assets/tabs/user.png"
+        "iconPath": "assets/tabs/我的.png",
+        "selectedIconPath": "assets/tabs/我的 (1).png"
       }
     ],
     "position": "bottom"

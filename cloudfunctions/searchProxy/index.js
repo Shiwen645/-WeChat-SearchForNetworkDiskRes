@@ -7,7 +7,7 @@ exports.main = async (event) => {
 
   try {
     // 替换为您的云端API地址（HTTP/HTTPS）
-    const apiUrl = 'http://156.233.233.164:5555//search'
+    const apiUrl = 'https://shiwen645.icu/search'
     const result = await rp({
       uri: apiUrl,
       qs: { kw, page, size },

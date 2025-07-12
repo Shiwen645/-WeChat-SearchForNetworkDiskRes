@@ -2,7 +2,7 @@
   "appid": "wxe1b75b787b8cfd63",
   "cloudfunctionRoot": "cloudfunctions/",
   "compileType": "miniprogram",
-  "libVersion": "3.7.0",
+  "libVersion": "3.8.8",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -26,5 +26,6 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "projectname": "2025%E5%AE%9E%E8%AE%AD_lsw"
 }

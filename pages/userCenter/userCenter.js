@@ -1,3 +1,5 @@
+// const { try } = require("bluebird");
+
 // pages/userCenter/userCenter.js
 const app = getApp()
 
@@ -41,12 +43,11 @@ Page({
         { label: '我的发布', value: postsCount }
       ],
       features: [
-        { name: '我的收藏', icon: 'favor' },
-        { name: '设置', icon: 'setting' }
+        { name: '我的收藏', icon: 'favor',url:"" },
+        { name: '设置', icon: 'setting',url:"" }
       ]
     });
   },
-
   // 获取用户信息
   getUserProfile(e) {
     if (!e.detail.userInfo) {
@@ -109,7 +110,21 @@ Page({
       return '0'
     }
   },
-
+  async navigateTo(e){
+    try {
+      if(e.target.offsetLeft === 95 && e.target.offsetTop === 273){
+        wx.navigateTo({
+          url: '/pages/collection/collection',
+        })
+      }else if(e.target.offsetLeft === 265 && e.target.offsetTop === 273){
+        wx.navigateTo({
+          url: '/pages/Setup/Setup',
+        })
+      }
+    }catch(e){
+      return console.log("获取索引错误");
+    }
+  },
   // 退出登录
   logout() {
     wx.showModal({

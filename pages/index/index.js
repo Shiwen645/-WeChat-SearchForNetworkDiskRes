@@ -78,7 +78,7 @@ Page({
     });
     // 调用分类搜索API
     wx.request({
-      url: 'http://156.233.233.164:5555//search',
+      url: 'https://shiwen645.icu/search',
       data: {
         kw: category,
         page: 1,
